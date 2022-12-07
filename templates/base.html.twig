@@ -8,18 +8,21 @@
         {% block stylesheets %}{% endblock %}
     </head>
 <body>
-<header>
-    <div class ="container">
-        <div class="logo">
-            Logo
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+                <strong>Individual Work</strong>
+                <ul class="nav col-1"></ul>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/twigs/details" class="nav-link px-2 link-secondary">Overview</a></li>
+                    <li><a href="/db/createitem/asdasdsad" class="nav-link px-2 link-dark">Create Account</a></li>
+                    <li><a href="/db/items" class="nav-link px-2 link-dark">Categories</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div>
-        <a href="/twigs/controller/php">twigs</a>
-        <a href="/twigs/details">details</a>
-        <a href="/db/categories">categories</a>
-    </div>
-</header>
+    </header>
 
 <div class="content">
     <div class="container">
@@ -28,7 +31,7 @@
 </div>
 <footer>
     <div class = "container">
-        Copyright: Maximka
+        <small>cimpoiesu danila</small>
     </div>
 </footer>
     {% block javascripts %}{% endblock %}

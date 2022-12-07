@@ -8,30 +8,19 @@
   #type: annotation
 
 
-index:
-  path: /
-  controller: App\Controller\DefaultController::index
-
-blogIndex:
-  path: /blog/index
-  controller: App\Controller\DefaultController::blogIndex
-
-twigsIndex:
-  path: /twigs/controller/php
-  controller: App\Controller\TwigsControllerPhpController::twigsIndex
 
 detailsIndex:
     path: /twigs/details
     controller: App\Controller\TwigsControllerPhpController::detailsIndex
 
-createCategoryAction:
-      path: /db/createcategory/{name}
-      controller: App\Controller\DbController::createCategoryAction
+createItemAction:
+      path: /db/createitem/{name}
+      controller: App\Controller\DbController::createItemAction
 
-categoriesAction:
-  path: /db/categories
-  controller: App\Controller\DbController::categoriesAction
+itemsAction:
+  path: /db/items
+  controller: App\Controller\DbController::itemsAction
 
 editAction:
-  path: /db/editcategory/{id}
+  path: /db/edititem/{id}
   controller: App\Controller\DbController::editAction

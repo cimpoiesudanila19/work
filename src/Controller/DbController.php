@@ -2,11 +2,11 @@
 namespace App\Controller;
 
 
+use App\Entity\Asd;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Category;
 use Doctrine\Persistence\ManagerRegistry;
 
 class DbController extends AbstractController{
@@ -16,44 +16,32 @@ class DbController extends AbstractController{
     public function editAction($id): Response
     {
 
-        $category = $this->doctrine->getManager()->getRepository(Category::class)->findOneBy(['categoryid' => $id]);
+        $item = $this->doctrine->getManager()->getRepository(Asd::class)->findOneBy(['id' => $id]);
 
-        return $this->render('db/editcategory.html.twig', ['category' => $category]);
+        return $this->render('db/edititem.html.twig', ['name' => $item]);
     }
 
 
-    public function categoriesAction(Request $request): Response
+    public function itemsAction(Request $request): Response
     {
         $searchfor = $request->query->get('searchfor');
         if($searchfor){
-            $categories = $this->doctrine->getManager()->getRepository(Category::class)->findBy(['categoryname'=> $searchfor]);
+            $items = $this->doctrine->getManager()->getRepository(Asd::class)->findBy(['name'=> $searchfor]);
         }else{
-            $categories = $this->doctrine->getManager()->getRepository(Category::class)->findAll();
+            $items = $this->doctrine->getManager()->getRepository(Asd::class)->findAll();
         }
 
-        return $this->render('db/categories.html.twig', ['categories' => $categories, 'searchfor' => $searchfor]);
+        return $this->render('db/items.html.twig', ['items' => $items, 'searchfor' => $searchfor]);
     }
 
-    public function createCategoryAction($name): Response
+    public function createItemAction($name): Response
     {
-        $category = new Category();
-        $category->setCategoryname($name);
-        $this->doctrine->getManager()->persist($category);
+        $item = new Asd();
+        $item->setName($name);
+        $this->doctrine->getManager()->persist($item);
         $this->doctrine->getManager()->flush();
-        return $this->render('db/editcategory.html.twig', ['category' => $category]);
+        return $this->render('db/edititem.html.twig', ['name' => $item]);
     }
 
-    /**
-     * @Route ("/db/delete/{id}", methods={get})
-     */
-    public function deleteAction($id){
-        $category = $this->doctrine->getManager()->getRepository(Category::class)->findOneBy([ 'categoryid' => $id]);
-        if($category){
-            $this->doctrine->getManager()->remove($category);
-            $this->doctrine->getManager()->flush();
-        }
-
-        return $this->redirect('db/categories');
-    }
 
 }

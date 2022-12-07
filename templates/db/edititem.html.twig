@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Twig Test {% endblock %}
+
+{% block body %}
+
+    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+            <h2 class="display-5">Name</h2>
+            <p class="lead">{{ name.getName() }}</p>
+            <form class="col-sm-6, form-center" method="post" >
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="" value="{{ name.getName() }}">
+                    <button type="submit" class="btn btn-secondary">Save</button>
+                </div>
+            </form>
+        </div>
+        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+    </div>
+
+
+{% endblock %}
