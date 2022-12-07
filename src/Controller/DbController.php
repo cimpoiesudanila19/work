@@ -12,10 +12,12 @@ use Doctrine\Persistence\ManagerRegistry;
 class DbController extends AbstractController{
 
     public function __construct(private ManagerRegistry $doctrine) {}
-
+    /**
+     * @Route("/edit", name="editName")
+     */
     public function editAction($id): Response
-    {
 
+    {
         $item = $this->doctrine->getManager()->getRepository(Asd::class)->findOneBy(['id' => $id]);
 
         return $this->render('db/edititem.html.twig', ['name' => $item]);
