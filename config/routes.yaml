@@ -1,0 +1,37 @@
+# config/routes/annotations.yaml
+#controllers:
+ # resource: ../../src/Controller/
+  #type: annotation
+
+#kernel:
+ # resource: ../../src/Kernel.php
+  #type: annotation
+
+
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+
+blogIndex:
+  path: /blog/index
+  controller: App\Controller\DefaultController::blogIndex
+
+twigsIndex:
+  path: /twigs/controller/php
+  controller: App\Controller\TwigsControllerPhpController::twigsIndex
+
+detailsIndex:
+    path: /twigs/details
+    controller: App\Controller\TwigsControllerPhpController::detailsIndex
+
+createCategoryAction:
+      path: /db/createcategory/{name}
+      controller: App\Controller\DbController::createCategoryAction
+
+categoriesAction:
+  path: /db/categories
+  controller: App\Controller\DbController::categoriesAction
+
+editAction:
+  path: /db/editcategory/{id}
+  controller: App\Controller\DbController::editAction

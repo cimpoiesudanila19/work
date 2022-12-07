@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Twig Test {% endblock %}
+
+{% block body %}
+    <h1>Редактируем {{ category.getCategoryname() }}</h1>
+<form method="post">
+    <label>
+        <input type="text" name="categoryname" value="{{ category.getCategoryname() }}" />
+    </label>
+    <button> Save</button>
+</form>
+{% endblock %}
